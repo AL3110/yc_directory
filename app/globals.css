@@ -1,24 +1,13 @@
 @import url("https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap");
 
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 @layer base {
     :root {
         --radius: 0.5rem;
     }
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-work-sans: var(--font-work-sans);
-  --color-white-100: 247 247 247;
-}
-
-@layer utilities {
-  .heading {
-    @apply uppercase bg-black px-6 p-3 font-work-sans font-extrabold text-white sm:text-[54px] sm:leading-[64px] text-[36px] leading-[46px] max-w-5xl text-center my-5
-  }
 }
 
 @layer utilities {
@@ -55,21 +44,11 @@
     }
 
     .text-14-normal {
-        @apply font-normal text-sm text-white-100 opacity-80;
+        @apply font-normal text-sm text-white-100/80;
     }
 
     .pink_container {
-        background-image: linear-gradient(
-                to right,
-                transparent 49.5%,
-                rgba(251, 232, 67, 0.2) 49.5%,
-                rgba(251, 232, 67, 0.6) 50.5%,
-                transparent 50.5%
-        );
-        background-size: 5% 100%;
-        background-position: center;
-        background-repeat: repeat-x;
-        @apply w-full bg-primary min-h-[530px]  flex justify-center items-center flex-col py-10 px-6;
+        @apply w-full bg-primary min-h-[530px] pattern flex justify-center items-center flex-col py-10 px-6;
     }
 
     .tag {
@@ -239,10 +218,4 @@
 
 .w-md-editor-toolbar {
     padding: 10px !important;
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-work-sans), system-ui, sans-serif;
 }
