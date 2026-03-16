@@ -5,8 +5,10 @@ import { auth, signOut, signIn } from '@/auth'
 import GitHub from 'next-auth/providers/github'
 import { BadgePlus, LogOut } from 'lucide-react'
 import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar'
+import { unstable_noStore as noStore } from "next/cache";
 
 const Navbar = async () => {
+  noStore();
   const session = await auth();
 
   return (

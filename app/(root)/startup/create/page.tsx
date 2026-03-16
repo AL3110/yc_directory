@@ -2,8 +2,10 @@ import React from 'react'
 import StartupForm from '@/components/StartupForm'
 import { auth } from '@/auth'
 import { redirect } from 'next/navigation' 
+import { unstable_noStore as noStore } from "next/cache";
 
 const page = async () => {
+  noStore();
   const session = await auth();
   if (!session) {
     redirect('/');
