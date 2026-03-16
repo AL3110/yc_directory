@@ -18,8 +18,8 @@ const page = async ({ params }: { params: Promise<{ id: string }>}) => {
   const id = (await params).id;
 
   const [ post, { select: editorPosts } ] = await Promise.all([
-    await client.fetch(STARTUP_BY_ID_QUERY, { id },{ cache: "no-store" }),
-    await client.fetch(PLAYLIST_BY_SLUG_QUERY, { slug: 'editor-picks' })
+    await client.fetch(STARTUP_BY_ID_QUERY, { id }, { cache: "no-store" }),
+    await client.fetch(PLAYLIST_BY_SLUG_QUERY, { slug: 'editor-picks' }, { cache: "no-store" })
   ])
 
   // const { select: editorPosts } = await client.fetch(PLAYLIST_BY_SLUG_QUERY, { slug: 'editor-picks' }); // NOT destrcturing BUT passing an object with KEY 'slug' and VALUE 'editor-picks'
