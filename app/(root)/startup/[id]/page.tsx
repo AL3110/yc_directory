@@ -11,15 +11,17 @@ import { Skeleton } from '@/components/ui/skeleton';
 import View from '@/components/View';
 import { PLAYLIST_BY_SLUG_QUERY } from '@/sanity/lib/queries';
 import StartupCard, { StartupTypeCard } from '@/components/StartupCard';
+import { unstable_noStore as noStore } from "next/cache";
 
 const md = markdownit();
 
 const page = async ({ params }: { params: Promise<{ id: string }>}) => {
+  noStore();
   const id = (await params).id;
 
   const [ post, { select: editorPosts } ] = await Promise.all([
-    await client.fetch(STARTUP_BY_ID_QUERY, { id }, { cache: "no-store" }),
-    await client.fetch(PLAYLIST_BY_SLUG_QUERY, { slug: 'editor-picks' }, { cache: "no-store" })
+    await client.fetch(STARTUP_BY_ID_QUERY, { id }),
+    await client.fetch(PLAYLIST_BY_SLUG_QUERY, { slug: 'editor-picks' })
   ])
 
   // const { select: editorPosts } = await client.fetch(PLAYLIST_BY_SLUG_QUERY, { slug: 'editor-picks' }); // NOT destrcturing BUT passing an object with KEY 'slug' and VALUE 'editor-picks'
