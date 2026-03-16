@@ -11,6 +11,7 @@ import { Skeleton } from '@/components/ui/skeleton';
 import View from '@/components/View';
 import { PLAYLIST_BY_SLUG_QUERY } from '@/sanity/lib/queries';
 import StartupCard, { StartupTypeCard } from '@/components/StartupCard';
+export const revalidate = 0;
 
 const md = markdownit();
 
