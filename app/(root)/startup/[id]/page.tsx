@@ -11,12 +11,10 @@ import { Skeleton } from '@/components/ui/skeleton';
 import View from '@/components/View';
 import { PLAYLIST_BY_SLUG_QUERY } from '@/sanity/lib/queries';
 import StartupCard, { StartupTypeCard } from '@/components/StartupCard';
-import { unstable_noStore as noStore } from "next/cache";
 
 const md = markdownit();
 
 const page = async ({ params }: { params: Promise<{ id: string }>}) => {
-  noStore();
   const id = (await params).id;
 
   const [ post, { select: editorPosts } ] = await Promise.all([
