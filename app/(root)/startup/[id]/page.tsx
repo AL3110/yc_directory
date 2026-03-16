@@ -12,6 +12,9 @@ import View from '@/components/View';
 import { PLAYLIST_BY_SLUG_QUERY } from '@/sanity/lib/queries';
 import StartupCard, { StartupTypeCard } from '@/components/StartupCard';
 
+export const dynamic = "force-dynamic";
+
+
 const md = markdownit();
 
 const page = async ({ params }: { params: Promise<{ id: string }>}) => {
