@@ -1,5 +1,5 @@
 import * as Sentry from "@sentry/nextjs";
-export const dynamic = "force-dynamic";
+// export const dynamic = "force-dynamic";
 
 class SentryExampleAPIError extends Error {
   constructor(message: string | undefined) {
