@@ -14,5 +14,9 @@ export function formatDate(date: string) {
 }
 
 export function formatViews(totalViews: number) {
-  return (totalViews == 1 ? '1 view' : `${totalViews} views`);
+  return (totalViews <= 1 ? '1 view' : `${totalViews} views`);
+}
+
+export function parseServerActionResponse<T> (response: T) {
+  return JSON.parse(JSON.stringify(response));
 }

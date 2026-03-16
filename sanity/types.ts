@@ -13,6 +13,34 @@
  */
 
 // Source: sanity\extract.json
+export type StartupReference = {
+  _ref: string;
+  _type: "reference";
+  _weak?: boolean;
+  [internalGroqTypeReferenceTo]?: "startup";
+};
+
+export type Playlist = {
+  _id: string;
+  _type: "playlist";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  title?: string;
+  slug?: Slug;
+  select?: Array<
+    {
+      _key: string;
+    } & StartupReference
+  >;
+};
+
+export type Slug = {
+  _type: "slug";
+  current: string;
+  source?: string;
+};
+
 export type AuthorReference = {
   _ref: string;
   _type: "reference";
@@ -37,12 +65,6 @@ export type Startup = {
 };
 
 export type Markdown = string;
-
-export type Slug = {
-  _type: "slug";
-  current: string;
-  source?: string;
-};
 
 export type Author = {
   _id: string;
@@ -172,10 +194,12 @@ export type Geopoint = {
 };
 
 export type AllSanitySchemaTypes =
+  | StartupReference
+  | Playlist
+  | Slug
   | AuthorReference
   | Startup
   | Markdown
-  | Slug
   | Author
   | SanityImagePaletteSwatch
   | SanityImagePalette
